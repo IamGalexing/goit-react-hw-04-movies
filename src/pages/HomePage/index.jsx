@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getMovies } from '../../sources/fetchMovies';
+import * as getMovies from '../../sources/fetchMovies';
 // import styles from './homePage.module.css';
 
 class HomePage extends Component {
@@ -9,7 +9,8 @@ class HomePage extends Component {
   };
 
   componentDidMount() {
-    getMovies()
+    getMovies
+      .tranding()
       .then(({ data }) => {
         this.setState({ movies: data.results });
       })
@@ -21,7 +22,7 @@ class HomePage extends Component {
       <ul>
         {this.state.movies.map(({ title, id }) => (
           <li key={id}>
-            <Link to="movies/:id">{title}</Link>
+            <Link to={`movies/${id}`}>{title}</Link>
           </li>
         ))}
       </ul>

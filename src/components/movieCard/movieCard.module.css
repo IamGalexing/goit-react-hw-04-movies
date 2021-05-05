@@ -1,0 +1,14 @@
+.movieCard {
+  display: flex;
+}
+
+.movieCardImage {
+}
+
+.movieCardDescription {
+  padding: 20px 40px;
+}
+
+.movieCardTitle {
+  margin-top: 0;
+}

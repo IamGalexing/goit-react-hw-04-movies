@@ -1,7 +1,18 @@
 // import styles from './reviews.module.css';
 
-const Reviews = () => {
-  return <h1>Reviews</h1>;
+const Reviews = ({ reviews = [] }) => {
+  return reviews.length ? (
+    <ul className="">
+      {reviews.map(({ id, content, author }) => (
+        <li key={id}>
+          <h3>{author}</h3>
+          <p>{content}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    'No reviews yet'
+  );
 };
 
 export default Reviews;
