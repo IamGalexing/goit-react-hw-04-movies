@@ -1,13 +1,32 @@
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
-import SearchBar from '../../components/SearchBar';
+import MoviesList from '../../components/MoviesList';
+import SearchBar from './SearchBar';
 import * as getMovies from '../../sources/fetchMovies';
-import styles from './moviesPage.module.css';
 
 class MoviesPage extends Component {
   state = {
     moviesSearchResult: [],
   };
+
+  componentDidMount() {
+    const moviesStored = sessionStorage.getItem('moviesSearched');
+    const moviesResultStored = JSON.parse(moviesStored);
+
+    if (moviesResultStored && moviesResultStored.length) {
+      this.setState({
+        moviesSearchResult: moviesResultStored,
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.moviesSearchResult !== this.state.moviesSearchResult) {
+      sessionStorage.setItem(
+        'moviesSearched',
+        JSON.stringify(this.state.moviesSearchResult),
+      );
+    }
+  }
 
   onSubmit = inputValue => {
     getMovies
@@ -22,23 +41,7 @@ class MoviesPage extends Component {
     return (
       <>
         <SearchBar handleSubmit={this.onSubmit} />
-        <ul className={styles.moviesList}>
-          {this.state.moviesSearchResult.map(({ title, id, poster_path }) => (
-            <li key={id}>
-              <Link
-                to={`${this.props.match.url}/${id}`}
-                className={styles.moviesListItem}
-              >
-                <img
-                  className={styles.moviesListItemImage}
-                  src={`https://image.tmdb.org/t/p/w300${poster_path}`}
-                  alt=""
-                />
-                <h3 className={styles.moviesListItemTitle}>{title}</h3>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <MoviesList list={this.state.moviesSearchResult} />
       </>
     );
   }

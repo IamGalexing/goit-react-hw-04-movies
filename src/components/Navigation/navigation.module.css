@@ -1,10 +1,13 @@
 .navBar {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .navBarList {
   list-style: none;
   padding: 0;
-  margin: 40px 0;
+  margin: 0;
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
@@ -12,16 +15,17 @@
 }
 
 .navBarLink {
-  padding: 10px;
-  padding-left: 0;
+  padding: 10px 10px 10px 0;
   margin-right: 50px;
   /* margin: 0 30px; */
   text-decoration: none;
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
+
+  color: var(--accent-color-light);
 }
 
 .navBarLink.active {
-  color: red;
+  color: var(--accent-color);
 }

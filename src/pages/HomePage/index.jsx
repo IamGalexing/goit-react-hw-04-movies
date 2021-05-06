@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import MoviesList from '../../components/MoviesList';
 import * as getMovies from '../../sources/fetchMovies';
 // import styles from './homePage.module.css';
 
@@ -18,15 +18,7 @@ class HomePage extends Component {
   }
 
   render() {
-    return (
-      <ul>
-        {this.state.movies.map(({ title, id }) => (
-          <li key={id}>
-            <Link to={`movies/${id}`}>{title}</Link>
-          </li>
-        ))}
-      </ul>
-    );
+    return <MoviesList list={this.state.movies} />;
   }
 }
 

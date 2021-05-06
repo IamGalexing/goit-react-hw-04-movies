@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import MovieCard from '../../components/movieCard';
-import Cast from '../../components/Cast';
-import Reviews from '../../components/Reviews';
+import MovieCard from './MovieCard';
+import Cast from './Cast';
+import Reviews from './Reviews';
 import * as getMovies from '../../sources/fetchMovies';
 import routes from '../../routes';
 
@@ -21,6 +21,11 @@ class MovieDetailsPage extends Component {
       .catch(err => new Error(err));
   }
 
+  onBackBtnClick = () => {
+    const { history, location } = this.props;
+    history.push(location?.state?.from || routes.movies);
+  };
+
   render() {
     const { details } = this.state;
     const { match } = this.props;
@@ -30,6 +35,9 @@ class MovieDetailsPage extends Component {
       <>
         {isData && (
           <div>
+            <button type="button" onClick={this.onBackBtnClick}>
+              Go back
+            </button>
             <MovieCard details={details} />
             <div>
               <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>

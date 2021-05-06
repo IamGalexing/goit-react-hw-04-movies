@@ -1,5 +1,5 @@
 import styles from './cast.module.css';
-import noImage from '../../images/no-profile-images.jpg';
+import noImage from '../../../images/no-profile-image.jpg';
 
 const Cast = ({ casts = [] }) => {
   return (
