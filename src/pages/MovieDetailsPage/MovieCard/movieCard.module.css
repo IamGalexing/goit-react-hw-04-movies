@@ -1,8 +1,18 @@
 .movieCard {
   display: flex;
+  width: 100%;
+  margin-top: 30px;
+  color: var(--dark);
+  background-color: #fafafa;
+
+  box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 1);
 }
 
 .movieCardImage {
+  width: fit-content;
+  min-width: 300px;
+  height: fit-content;
+  min-height: 450px;
 }
 
 .movieCardDescription {
@@ -11,4 +21,20 @@
 
 .movieCardTitle {
   margin-top: 0;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.movieCardSectionTitle {
+  margin-top: 25px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+}
+
+.movieCardText {
+  margin-top: 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }

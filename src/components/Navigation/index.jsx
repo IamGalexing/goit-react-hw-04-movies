@@ -6,7 +6,7 @@ const Navigation = () => {
   return (
     <nav className={styles.navBar}>
       <ul className={styles.navBarList}>
-        <li>
+        <li className={styles.navBarItem}>
           <NavLink
             exact
             to={routes.home}
@@ -16,7 +16,7 @@ const Navigation = () => {
             Home
           </NavLink>
         </li>
-        <li>
+        <li className={styles.navBarItem}>
           <NavLink
             to={routes.movies}
             className={styles.navBarLink}

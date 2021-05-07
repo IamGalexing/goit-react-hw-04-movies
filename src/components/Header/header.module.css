@@ -1,4 +1,9 @@
 .header {
   background-color: var(--dark);
   padding: 40px 0;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

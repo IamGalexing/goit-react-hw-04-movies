@@ -1,0 +1,33 @@
+.reviewsList {
+  width: 95%;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewsItem {
+  color: var(--dark);
+}
+
+.reviewsTitle {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  margin-bottom: 0;
+}
+
+.reviewsText {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.noReviews {
+  margin: 0 auto;
+  text-align: center;
+
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  color: var(--dark);
+}

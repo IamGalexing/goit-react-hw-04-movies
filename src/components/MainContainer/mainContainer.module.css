@@ -1,0 +1,7 @@
+.mainContainer {
+  width: 100%;
+  max-width: 1024px;
+  min-width: 441px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}

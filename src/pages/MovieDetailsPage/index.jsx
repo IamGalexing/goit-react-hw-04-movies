@@ -5,6 +5,7 @@ import Cast from './Cast';
 import Reviews from './Reviews';
 import * as getMovies from '../../sources/fetchMovies';
 import routes from '../../routes';
+import styles from './movieDetailsPage.module.css';
 
 class MovieDetailsPage extends Component {
   state = {
@@ -15,7 +16,6 @@ class MovieDetailsPage extends Component {
     getMovies
       .details(this.props.match.params.movieID)
       .then(({ data }) => {
-        console.log(data);
         this.setState({ details: data });
       })
       .catch(err => new Error(err));
@@ -35,13 +35,29 @@ class MovieDetailsPage extends Component {
       <>
         {isData && (
           <div>
-            <button type="button" onClick={this.onBackBtnClick}>
+            <button
+              className={styles.backBtn}
+              type="button"
+              onClick={this.onBackBtnClick}
+            >
               Go back
             </button>
             <MovieCard details={details} />
-            <div>
-              <NavLink to={`${match.url}/reviews`}>Reviews</NavLink>
-              <NavLink to={`${match.url}/cast`}>Cast</NavLink>
+            <div className={styles.movieDetailsSearch}>
+              <NavLink
+                to={`${match.url}/reviews`}
+                className={styles.btnDetails}
+                activeClassName={styles.active}
+              >
+                <span>Reviews</span>
+              </NavLink>
+              <NavLink
+                to={`${match.url}/cast`}
+                className={styles.btnDetails}
+                activeClassName={styles.active}
+              >
+                <span>Cast</span>
+              </NavLink>
             </div>
           </div>
         )}

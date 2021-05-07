@@ -13,7 +13,7 @@ const search = async value => {
 
 const details = async movie_id => {
   return await axios.get(
-    `movie/${movie_id}?api_key=${KEY}&append_to_response=reviews,credits`,
+    `movie/${movie_id}?api_key=${KEY}&append_to_response=reviews,credits,backdrop_path`,
   );
 };
 
