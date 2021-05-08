@@ -8,6 +8,12 @@
   list-style: none;
 }
 
+@media only screen and (max-width: 1034px) {
+  .moviesList {
+    margin: 30px 19px;
+  }
+}
+
 .moviesListItem {
   transform: scale(1);
   transition: all 0.2s ease-out;

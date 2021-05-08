@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './movieCard.module.css';
-import noImage from '../../../images/no-poster-image.jpg';
+import noImage from '../../images/no-poster-image.jpg';
 
 const MovieCard = ({ details }) => {
   const {

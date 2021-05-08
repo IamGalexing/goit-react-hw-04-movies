@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import MovieCard from './MovieCard';
-import Cast from './Cast';
-import Reviews from './Reviews';
-import * as getMovies from '../../sources/fetchMovies';
-import routes from '../../routes';
-import styles from './movieDetailsPage.module.css';
+import MovieCard from '../components/MovieCard';
+import Cast from '../components/Cast';
+import Reviews from '../components/Reviews';
+import BackButton from '../components/BackButton';
+import getMovies from '../sources/fetchMovies';
+import routes from '../routes';
 
 class MovieDetailsPage extends Component {
   state = {
@@ -35,26 +35,20 @@ class MovieDetailsPage extends Component {
       <>
         {isData && (
           <div>
-            <button
-              className={styles.backBtn}
-              type="button"
-              onClick={this.onBackBtnClick}
-            >
-              Go back
-            </button>
+            <BackButton onBackBtnClick={this.onBackBtnClick} />
             <MovieCard details={details} />
-            <div className={styles.movieDetailsSearch}>
+            <div className="movieDetailsSearch">
               <NavLink
                 to={`${match.url}/reviews`}
-                className={styles.btnDetails}
-                activeClassName={styles.active}
+                className="btnDetails"
+                activeClassName="active"
               >
                 <span>Reviews</span>
               </NavLink>
               <NavLink
                 to={`${match.url}/cast`}
-                className={styles.btnDetails}
-                activeClassName={styles.active}
+                className="btnDetails"
+                activeClassName="active"
               >
                 <span>Cast</span>
               </NavLink>

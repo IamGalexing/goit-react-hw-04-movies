@@ -1,6 +1,6 @@
 import { Component } from 'react';
-import MoviesList from '../../components/MoviesList';
-import * as getMovies from '../../sources/fetchMovies';
+import MoviesList from '../components/MoviesList';
+import getMovies from '../sources/fetchMovies';
 
 class HomePage extends Component {
   state = {

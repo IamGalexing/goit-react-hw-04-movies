@@ -1,83 +1,68 @@
-.container {
-  text-align: center;
+.containerLoader {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  transition: opacity 0.5s;
 }
+
 .loader {
-  position: relative;
-  width: 200px;
-  height: 60px;
-  border-radius: 50%;
-  margin: 75px;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 auto;
-  text-align: center;
+  width: 8vmax;
+  height: 8vmax;
+  border-right: 4px solid var(--dark);
+  border-radius: 100%;
+  animation: spinRight 800ms linear infinite;
 }
 
-/*LOADER-17*/
-
-.loader17 .cssSquare {
+.loader:before,
+.loader:after {
+  content: '';
+  width: 6vmax;
+  height: 6vmax;
+  display: block;
   position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 10px;
-  background: var(--dark);
-  box-shadow: 2px 2px 3px 0px var(--accent-color);
+  top: calc(50% - 3vmax);
+  left: calc(50% - 3vmax);
+  border-left: 3px solid var(--dark);
+  border-radius: 100%;
+  animation: spinLeft 800ms linear infinite;
 }
 
-.loader17 .square1 {
-  left: 140px;
-  animation: dominos 1s 0.125s ease infinite;
+.loader:after {
+  width: 4vmax;
+  height: 4vmax;
+  top: calc(50% - 2vmax);
+  left: calc(50% - 2vmax);
+  border: 0;
+  border-right: 2px solid var(--dark);
+  animation: none;
 }
 
-.loader17 .square2 {
-  left: 120px;
-  animation: dominos 1s 0.3s ease infinite;
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.loader17 .square3 {
-  left: 100px;
-  animation: dominos 1s 0.425s ease infinite;
-}
-
-.loader17 .square4 {
-  left: 80px;
-  animation: dominos 1s 0.54s ease infinite;
-}
-
-.loader17 .square5 {
-  left: 60px;
-  animation: dominos 1s 0.665s ease infinite;
-}
-
-.loader17 .square6 {
-  left: 40px;
-  animation: dominos 1s 0.79s ease infinite;
-}
-
-.loader17 .square7 {
-  left: 20px;
-  animation: dominos 1s 0.9s ease infinite;
-}
-
-.loader17 .square8 {
-  left: 0px;
-  animation: dominos 1s 1s ease infinite;
-}
-
-/* ----------------     KEYFRAMES    ----------------- */
-
-@keyframes dominos {
-  50% {
-    opacity: 0.7;
+@keyframes spinLeft {
+  from {
+    transform: rotate(0deg);
   }
-  75% {
-    transform: rotate(90deg);
+  to {
+    transform: rotate(720deg);
   }
-  80% {
-    opacity: 1;
+}
+
+@keyframes spinRight {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }

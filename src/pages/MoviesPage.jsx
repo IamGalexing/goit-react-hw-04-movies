@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import MoviesList from '../../components/MoviesList';
-import SearchBar from './SearchBar';
-import * as getMovies from '../../sources/fetchMovies';
+import MoviesList from '../components/MoviesList';
+import SearchBar from '../components/SearchBar';
+import getMovies from '../sources/fetchMovies';
 
 class MoviesPage extends Component {
   state = {

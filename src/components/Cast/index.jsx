@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './cast.module.css';
-import noImage from '../../../images/no-profile-image.jpg';
+import noImage from '../../images/no-profile-image.jpg';
 
 const Cast = ({ casts = [] }) => {
   const isProfileImage = profile =>
